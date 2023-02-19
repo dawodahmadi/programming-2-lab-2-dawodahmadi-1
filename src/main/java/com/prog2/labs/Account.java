@@ -4,7 +4,10 @@ package com.prog2.labs;
  *
  */
 public class Account {
-	
+    private int accountNumber;
+    private String name;
+    private double amount;
+    private static int numberOfAccounts = 0;
 	/**
 	 * i) Define three instance variables called accountNumber, name and amount.
 	 */
@@ -24,15 +27,48 @@ public class Account {
 	/**
 	 * iii) A default constructor.
 	 */
-	
+	public Account() {
+        numberOfAccounts++;
+        }
 	/**
 	 * iv) A constructor that takes all the parameters and initializes them 
 	 */
 	
 	public Account(int accountNumber, String name, double amount) {
-		
+            this.accountNumber = accountNumber;
+            this.name = name;
+            this.amount = amount;
+            numberOfAccounts++;	
 	}
 	
+    // Getters and setters
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+    
+    public void setAccountNumber(int accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public double getAmount() {
+        return amount;
+    }
+    
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
+    
+    public static int getNumberOfAccounts() {
+        return numberOfAccounts;
+    }
 	/**
 	 * v) Getters and setters (accessors and mutators).
 	 */
@@ -45,7 +81,8 @@ public class Account {
 	 * @return result new value.
 	 */
 	public double deposit(double amountToBeDeposited) {
-		return 0.0;
+            amount += amountToBeDeposited;
+            return amount;
 	}
 	
 	/**
@@ -56,7 +93,8 @@ public class Account {
 	 * @return result new value.
 	 */
 	public double withdraw(double amountToBeWithdrawn) {
-		return 0.0;
+            amount -= amountToBeWithdrawn;
+            return amount;
 	}
 	
 	/**
@@ -65,7 +103,8 @@ public class Account {
 	 * @return result new value.
 	 */
 	public double calculateInterest() {
-		return 0.0;
+            amount=amount*1.02;
+            return amount;
 	}
 	
 	/**
@@ -74,7 +113,7 @@ public class Account {
 	 * @return result the string containing the values.
 	 */
 	public String toString() {
-		return "";
+		return "Account number: " + accountNumber + ". Amount: " + amount + ". Name: " + name;
 	}
 	
 	/**
@@ -85,6 +124,9 @@ public class Account {
 	 * @return result the string containing the values.
 	 */
 	public boolean equals(Account anotherAccount) {
-		return false;
+            
+               return false;
+            
 	}
 }
+//myAccount.equals(anotherAccount)
